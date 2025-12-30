@@ -59,7 +59,6 @@
 3. Compile e execute o projeto.
 4. O jogo irá mostrar as rodadas e os ataques realizados por cada personagem até a vitória de um deles.
 
-### Exemplo de Saída:
 Nome: Jorge
 Força Bruta: 15
 Vida: 158
