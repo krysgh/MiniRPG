@@ -1,126 +1,63 @@
-MiniRPG
+# MiniRPG
 
-MiniRPG é um jogo simples desenvolvido em C# que simula uma batalha entre dois personagens: um Guerreiro e um Mago. Cada personagem possui atributos como Força Bruta, Vida, e habilidades especiais. A batalha se desenrola em rodadas, onde os personagens atacam uns aos outros até que um deles tenha sua Vida reduzida a 0.
+**MiniRPG** é um jogo simples desenvolvido em C# que simula uma batalha entre dois personagens: um **Guerreiro** e um **Mago**. Cada personagem possui atributos como Força Bruta, Vida, e habilidades especiais. A batalha se desenrola em rodadas, onde os personagens atacam uns aos outros até que um deles tenha sua Vida reduzida a 0.
 
-Estrutura do Projeto
-Classes
+## Estrutura do Projeto
 
-Personagem (Abstract)
+### Classes
 
-Classe base que representa um personagem no jogo.
+1. **Personagem** (Abstract)
+    - Classe base que representa um personagem no jogo.
+    - Contém as propriedades:
+        - `Nome`: Nome do personagem.
+        - `ForcaBruta`: A força de ataque do personagem, gerada aleatoriamente entre 1 e 20.
+        - `Vida`: A quantidade de vida do personagem, gerada aleatoriamente entre 1 e 200.
+    - Métodos:
+        - `SetVida(Decimal vida)`: Atualiza a vida do personagem.
+        - `Atacar()`: Método virtual que simula um ataque e retorna o dano causado.
+        - `ToString()`: Exibe as informações do personagem.
 
-Contém as propriedades:
+2. **Guerreiro** (Classe derivada de `Personagem`)
+    - Representa o personagem Guerreiro.
+    - Sobrescreve o método `Atacar()` para calcular o dano com base na `ForcaBruta`.
 
-Nome: Nome do personagem.
+3. **Mago** (Classe derivada de `Personagem` e implementa a interface `IHabilidadeEspecial`)
+    - Representa o personagem Mago.
+    - Possui a propriedade `Mana` (valor gerado aleatoriamente entre 1 e 20).
+    - Sobrescreve o método `Atacar()` para calcular o dano com base na `Mana`.
+    - Implementa o método `Especial()`, que realiza um ataque especial baseado na `Mana`.
 
-ForcaBruta: A força de ataque do personagem, gerada aleatoriamente entre 1 e 20.
+4. **IHabilidadeEspecial** (Interface)
+    - Define o método `Especial()`, que é implementado por personagens com habilidades especiais (como o Mago).
 
-Vida: A quantidade de vida do personagem, gerada aleatoriamente entre 1 e 200.
+### Funções de Jogo
 
-Métodos:
+1. **VerificarVitoria(Personagem p)**
+    - Verifica se a vida de um personagem é menor ou igual a 0, indicando que o personagem foi derrotado.
 
-SetVida(Decimal vida): Atualiza a vida do personagem.
+2. **ExibirVitoria(Personagem p)**
+    - Exibe uma mensagem informando se o personagem foi derrotado.
 
-Atacar(): Método virtual que simula um ataque e retorna o dano causado.
+3. **ExibirInfo(Personagem p)**
+    - Exibe as informações do personagem, colorindo a saída dependendo do tipo de personagem (vermelho para o Guerreiro, azul para o Mago).
 
-ToString(): Exibe as informações do personagem.
+4. **ExibirRodada(int contador)**
+    - Exibe o número da rodada atual.
 
-Guerreiro (Classe derivada de Personagem)
+### Fluxo de Jogo
 
-Representa o personagem Guerreiro.
+- O jogo começa com um **Guerreiro** e um **Mago** sendo instanciados.
+- Em cada rodada, os personagens se atacam alternadamente:
+  - O Guerreiro realiza um ataque baseado na sua **Força Bruta**.
+  - O Mago alterna entre um ataque normal e um ataque especial (dependendo da rodada).
+- O jogo continua até que um dos personagens tenha sua Vida reduzida a 0, e o vencedor é exibido.
 
-Sobrescreve o método Atacar() para calcular o dano com base na ForcaBruta.
+## Como Executar
 
-Mago (Classe derivada de Personagem e implementa a interface IHabilidadeEspecial)
+1. Clone ou baixe o repositório.
+2. Abra o projeto em um IDE compatível com C# (como Visual Studio ou Visual Studio Code).
+3. Compile e execute o projeto.
+4. O jogo irá mostrar as rodadas e os ataques realizados por cada personagem até a vitória de um deles.
 
-Representa o personagem Mago.
+### Exemplo de Saída:
 
-Possui a propriedade Mana (valor gerado aleatoriamente entre 1 e 20).
-
-Sobrescreve o método Atacar() para calcular o dano com base na Mana.
-
-Implementa o método Especial(), que realiza um ataque especial baseado na Mana.
-
-IHabilidadeEspecial (Interface)
-
-Define o método Especial(), que é implementado por personagens com habilidades especiais (como o Mago).
-
-Funções de Jogo
-
-VerificarVitoria(Personagem p)
-
-Verifica se a vida de um personagem é menor ou igual a 0, indicando que o personagem foi derrotado.
-
-ExibirVitoria(Personagem p)
-
-Exibe uma mensagem informando se o personagem foi derrotado.
-
-ExibirInfo(Personagem p)
-
-Exibe as informações do personagem, colorindo a saída dependendo do tipo de personagem (vermelho para o Guerreiro, azul para o Mago).
-
-ExibirRodada(int contador)
-
-Exibe o número da rodada atual.
-
-Fluxo de Jogo
-
-O jogo começa com um Guerreiro e um Mago sendo instanciados.
-
-Em cada rodada, os personagens se atacam alternadamente:
-
-O Guerreiro realiza um ataque baseado na sua Força Bruta.
-
-O Mago alterna entre um ataque normal e um ataque especial (dependendo da rodada).
-
-O jogo continua até que um dos personagens tenha sua Vida reduzida a 0, e o vencedor é exibido.
-
-Como Executar
-
-Clone ou baixe o repositório.
-
-Abra o projeto em um IDE compatível com C# (como Visual Studio ou Visual Studio Code).
-
-Compile e execute o projeto.
-
-O jogo irá mostrar as rodadas e os ataques realizados por cada personagem até a vitória de um deles.
-
-Exemplo de Saída:
-Nome: Jorge
-Força Bruta: 15
-Vida: 158
-
-Nome: Charles
-Força Bruta: 11
-Vida: 175
-
--------------------------------------------------------------------------------
-RODADA 1
-Jorge realizará um ataque de 12 pontos de Vida.
-
-Nome: Charles
-Força Bruta: 11
-Vida: 163
-
-Nome: Charles
-Força Bruta: 11
-Vida: 163
-
--------------------------------------------------------------------------------
-RODADA 2
-Charles realizará um ataque especial de 240 pontos de Vida.
-
-Nome: Jorge
-Força Bruta: 15
-Vida: -82
-
-Charles foi derrotado!
-
-Contribuição
-
-Sinta-se à vontade para contribuir com o projeto. Se você tiver sugestões de melhorias ou novas funcionalidades, abra uma issue ou envie um pull request.
-
-Licença
-
-Este projeto é de código aberto, licenciado sob a MIT License
-.
