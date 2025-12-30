@@ -60,4 +60,36 @@
 4. O jogo irá mostrar as rodadas e os ataques realizados por cada personagem até a vitória de um deles.
 
 ### Exemplo de Saída:
+Nome: Jorge
+Força Bruta: 15
+Vida: 158
+
+Nome: Charles
+Força Bruta: 11
+Vida: 175
+--------------------------------------------------------------
+RODADA 1
+Jorge realizará um ataque de 12 pontos de Vida.
+
+Nome: Charles
+Força Bruta: 11
+Vida: 163
+--------------------------------------------------------------
+RODADA 2
+Charles realizará um ataque especial de 240 pontos de Vida.
+
+Nome: Jorge
+Força Bruta: 15
+Vida: 0
+
+Charles foi derrotado!
+
+
+## Contribuição
+
+Sinta-se à vontade para contribuir com o projeto. Se você tiver sugestões de melhorias ou novas funcionalidades, abra uma **issue** ou envie um **pull request**.
+
+## Licença
+
+Este projeto é de código aberto, licenciado sob a [MIT License](LICENSE).
 
