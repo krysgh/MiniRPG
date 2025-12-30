@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="MiniRPG.Models/MiniRPG.Models.csproj" />
+  <Project Path="MiniRPG/MiniRPG.csproj" />
+</Solution>
